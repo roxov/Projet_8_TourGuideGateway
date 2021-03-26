@@ -13,4 +13,6 @@ public interface UserManagementProxy {
 	@RequestMapping("/getRewards")
 	public String getRewards(@RequestParam String userName);
 
+	@RequestMapping("/getAllCurrentLocations")
+	public String getAllCurrentLocations();
 }

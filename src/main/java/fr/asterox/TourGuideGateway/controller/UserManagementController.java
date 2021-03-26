@@ -10,15 +10,20 @@ import fr.asterox.TourGuideGateway.proxy.UserManagementProxy;
 @RestController
 public class UserManagementController {
 	@Autowired
-	UserManagementProxy usersManagementProxy;
+	UserManagementProxy userManagementProxy;
 
 	@RequestMapping("/getLastLocation")
 	public String getLastLocation(@RequestParam String userName) {
-		return usersManagementProxy.getLastLocation(userName);
+		return userManagementProxy.getLastLocation(userName);
 	};
 
 	@RequestMapping("/getRewards")
 	public String getRewards(@RequestParam String userName) {
-		return usersManagementProxy.getRewards(userName);
+		return userManagementProxy.getRewards(userName);
+	}
+
+	@RequestMapping("/getAllCurrentLocations")
+	public String getAllCurrentLocations() {
+		return userManagementProxy.getAllCurrentLocations();
 	}
 }
