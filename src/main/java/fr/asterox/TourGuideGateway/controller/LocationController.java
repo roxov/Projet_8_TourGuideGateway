@@ -2,10 +2,12 @@ package fr.asterox.TourGuideGateway.controller;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,14 +22,15 @@ public class LocationController {
 
 	private Logger logger = LoggerFactory.getLogger(LocationController.class);
 
-	@RequestMapping("/trackLocation")
-	public LocationDTO trackLocation(@RequestParam String userName) {
+	@GetMapping("/trackLocation")
+	public LocationDTO trackLocation(@RequestParam @NotNull(message = "username is compulsory") String userName) {
 		logger.debug("sending request to Location microservice to track location of user :" + userName);
 		return locationProxy.trackLocation(userName);
 	}
 
-	@RequestMapping("/getNearbyAttractions")
-	public List<NearbyAttractionDTO> getNearbyAttractions(@RequestParam String userName) {
+	@GetMapping("/getNearbyAttractions")
+	public List<NearbyAttractionDTO> getNearbyAttractions(
+			@RequestParam @NotNull(message = "username is compulsory") String userName) {
 		logger.debug(
 				"sending request to Location microservice to get the 5 closest attractions from user :" + userName);
 		return locationProxy.getNearbyAttractions(userName);
