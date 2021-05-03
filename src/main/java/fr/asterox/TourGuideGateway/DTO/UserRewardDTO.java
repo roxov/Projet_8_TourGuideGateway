@@ -1,21 +1,18 @@
 package fr.asterox.TourGuideGateway.DTO;
 
-import gpsUtil.location.Attraction;
-import gpsUtil.location.VisitedLocation;
-
 public class UserRewardDTO {
 
-	public final VisitedLocation visitedLocation;
-	public final Attraction attraction;
+	public final VisitedLocationDTO visitedLocation;
+	public final AttractionDTO attraction;
 	private int rewardPoints;
 
-	public UserRewardDTO(VisitedLocation visitedLocation, Attraction attraction, int rewardPoints) {
+	public UserRewardDTO(VisitedLocationDTO visitedLocation, AttractionDTO attraction, int rewardPoints) {
 		this.visitedLocation = visitedLocation;
 		this.attraction = attraction;
 		this.rewardPoints = rewardPoints;
 	}
 
-	public UserRewardDTO(VisitedLocation visitedLocation, Attraction attraction) {
+	public UserRewardDTO(VisitedLocationDTO visitedLocation, AttractionDTO attraction) {
 		this.visitedLocation = visitedLocation;
 		this.attraction = attraction;
 	}
